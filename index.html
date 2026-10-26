@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101112" />
+  <title>부장님때리기 — 오늘의 스트레스, 오늘의 한 방!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="부장님때리기 홈">
+      <span class="brand-mark">✦</span><span>부장님<span class="brand-gold">때리기</span><small>STRESS BATTLE CLUB</small></span>
+    </a>
+    <nav class="topnav">
+      <button class="nav-link active" data-view="home">게임 시작</button>
+      <button class="nav-link" data-view="collection">몬스터 도감 <span id="monsterCount" class="nav-count">0</span></button>
+      <button class="nav-link" data-view="records">전투 기록</button>
+    </nav>
+    <div class="profile-chip"><span class="online-dot"></span><span>오늘도 수고했어요</span></div>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active-view">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> YOUR STRESS, YOUR BATTLE</div>
+          <h1>오늘의 스트레스,<br /><em>오늘의 한 방!</em></h1>
+          <p>말로 다 못 한 고민을 몬스터로 바꿔보세요.<br />무기를 고르고, 마음껏 한 판 붙어보는 시간.</p>
+          <button class="primary-btn large" id="startBtn">고민 때리러 가기 <span>↗</span></button>
+          <div class="hero-foot"><span>✦</span> 현실의 사람 대신, 가상의 고민 몬스터와 전투해요.</div>
+        </div>
+        <div class="hero-art" aria-label="가상의 고민 몬스터 일러스트">
+          <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+          <div class="rune rune-one">✦</div><div class="rune rune-two">✧</div><div class="rune rune-three">✦</div>
+          <div class="monster">
+            <div class="monster-horn left-horn"></div><div class="monster-horn right-horn"></div>
+            <div class="monster-body">
+              <div class="monster-brow"></div><div class="eyes"><i></i><i></i></div>
+              <div class="monster-mouth"><b></b><b></b><b></b></div>
+            </div>
+            <div class="monster-shadow"></div>
+          </div>
+          <div class="art-label"><span class="label-dot"></span><div><small>TODAY’S ENEMY</small><strong>월요일의 그림자</strong></div><span class="label-level">LV.01</span></div>
+          <div class="art-caption">고민이 커질수록<br />몬스터도 강해진다.</div>
+        </div>
+      </section>
+
+      <section class="feature-strip">
+        <div class="feature"><span class="feature-icon">⌘</span><div><strong>고민을 몬스터로</strong><small>내 이야기로 만드는 맞춤형 적</small></div></div>
+        <div class="feature"><span class="feature-icon">⚔</span><div><strong>내 손으로 한 방</strong><small>무기를 골라 직접 공격하기</small></div></div>
+        <div class="feature"><span class="feature-icon">♡</span><div><strong>마음도 체크하기</strong><small>전투 후 기분을 가볍게 기록</small></div></div>
+      </section>
+      <section class="bottom-note"><span>오늘의 미션</span><p>마음에 쌓인 걸 조금 내려놓기. 완벽하게 해결하지 않아도 괜찮아요.</p><span class="note-star">✦</span></section>
+    </section>
+
+    <section id="inputView" class="view">
+      <div class="page-heading"><button class="back-btn" data-view="home">← 돌아가기</button><div class="eyebrow">01 / TELL YOUR STORY</div><h2>무슨 일이 있었나요?</h2><p>마음에 걸리는 일을 편하게 적어주세요. 몬스터의 재료가 됩니다.</p></div>
+      <div class="input-layout">
+        <div class="form-panel">
+          <label class="field-label" for="worryInput">오늘의 고민 <span>선택 사항</span></label>
+          <textarea id="worryInput" maxlength="500" placeholder="예: 할 일이 너무 많은데 어디서부터 시작해야 할지 모르겠어..."></textarea>
+          <div class="textarea-footer"><span>개인적인 내용은 구체적인 실명 없이 적어도 괜찮아요.</span><span id="charCount">0 / 500</span></div>
+          <div class="field-label keyword-label">고민 유형 <span>하나 선택</span></div>
+          <div class="keyword-grid" id="keywordGrid">
+            <button class="keyword selected" data-key="직장">▣ <span>직장</span></button>
+            <button class="keyword" data-key="학업">▤ <span>학업</span></button>
+            <button class="keyword" data-key="진로">⌁ <span>진로</span></button>
+            <button class="keyword" data-key="인간관계">♧ <span>인간관계</span></button>
+            <button class="keyword" data-key="자기비교">◈ <span>자기비교</span></button>
+            <button class="keyword" data-key="기타">＋ <span>기타</span></button>
+          </div>
+          <div class="field-label mood-label">지금 기분은 어떤가요?</div>
+          <div class="mood-row" id="beforeMood">
+            <button class="mood" data-mood="답답함"><span>😣</span><small>답답함</small></button>
+            <button class="mood selected" data-mood="화남"><span>😤</span><small>화남</small></button>
+            <button class="mood" data-mood="불안함"><span>😟</span><small>불안함</small></button>
+            <button class="mood" data-mood="지침"><span>😮‍💨</span><small>지침</small></button>
+            <button class="mood" data-mood="그냥 그래요"><span>😐</span><small>그냥 그래요</small></button>
+          </div>
+          <label class="privacy-check"><input type="checkbox" id="saveRecord" checked /> 전투 결과를 이 기기에 기록하기</label>
+          <button class="primary-btn full" id="generateBtn">내 고민으로 몬스터 만들기 <span>✦</span></button>
+          <p class="privacy-note">고민은 기본적으로 서버로 전송하지 않아요. 이 데모는 입력 내용을 브라우저 안에서 처리합니다.</p>
+        </div>
+        <aside class="side-card"><div class="side-card-symbol">✧</div><span class="eyebrow">A LITTLE REMINDER</span><h3>여기서는<br />잠깐 내려놔도 돼요.</h3><p>정답을 찾으려고 애쓰지 않아도 괜찮아요. 오늘은 일단 마음속 소음을 게임으로 바꿔봐요.</p><div class="side-card-line"></div><small>※ 게임은 감정 표현을 위한 놀이이며 전문적인 상담을 대체하지 않아요.</small></aside>
+      </div>
+    </section>
+
+    <section id="monsterView" class="view">
+      <div class="page-heading"><button class="back-btn" data-view="input">← 고민 수정</button><div class="eyebrow">02 / ENEMY DISCOVERED</div><h2>오늘의 몬스터가 나타났다.</h2><p>준비됐나요? 이제 무기를 고르고 한 판 붙어봐요.</p></div>
+      <div class="monster-reveal">
+        <div class="reveal-art"><div class="reveal-glow"></div><div class="monster reveal-monster" id="revealMonster"><img class="undertale-sprite" id="revealSprite" alt="몬스터 스프라이트" /></div><div class="reveal-floor"></div></div>
+        <div class="reveal-info"><div class="enemy-tag"><span class="label-dot"></span> YOUR PERSONAL ENEMY</div><h3 id="monsterName">월요일의 그림자</h3><p id="monsterDesc">미뤄둔 일과 걱정이 뭉쳐 태어난 몬스터.</p><div class="stat-row"><span>위협 지수</span><div class="stat-track"><i id="threatBar"></i></div><b id="threatText">72</b></div><div class="stat-row"><span>몬스터 체력</span><div class="stat-track hp-track"><i id="previewHp"></i></div><b id="hpText">100</b></div><div class="weapon-heading"><span>난이도 선택</span><small>기본 체력 × 몬스터 레벨 보정</small></div><div class="difficulty-grid" id="difficultyGrid"><button class="difficulty selected" data-difficulty="easy">쉬움 <b>100 HP</b></button><button class="difficulty" data-difficulty="normal">보통 <b>220 HP</b></button><button class="difficulty" data-difficulty="hard">어려움 <b>360 HP</b></button><button class="difficulty" data-difficulty="nightmare">악몽 <b>500 HP</b></button></div><div class="weapon-heading"><span>무기 선택</span><small>무기마다 조작 방식이 달라요</small></div><div class="weapon-grid" id="weaponGrid">
+          <button class="weapon selected" data-weapon="bow"><span class="weapon-symbol">➶</span><strong>활</strong><small>빠른 연타</small></button>
+          <button class="weapon" data-weapon="sword"><span class="weapon-symbol">⚔</span><strong>검</strong><small>느리지만 강력</small></button>
+          <button class="weapon" data-weapon="magic"><span class="weapon-symbol">✧</span><strong>마법봉</strong><small>꾹 눌러 충전</small></button>
+        </div><button class="primary-btn full" id="battleBtn">전투 시작하기 <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section id="battleView" class="view">
+      <div class="battle-top"><button class="back-btn" data-view="monster">← 무기 변경</button><div class="battle-stage-label">BATTLE STAGE <span>01</span></div><button class="quiet-btn" id="quitBattle">전투 나가기</button></div>
+      <div class="battle-arena" id="battleArena">
+        <div class="arena-grid"></div><div class="arena-glow"></div><div class="lane-marker left-lane">왼쪽</div><div class="lane-marker center-lane">중앙</div><div class="lane-marker right-lane">오른쪽</div><div class="attack-warning" id="attackWarning" aria-live="assertive">공격 예고</div><div class="player-hud"><span>PLAYER HP</span><div class="health-track player-health-track"><i id="playerHealth"></i></div><b id="playerHealthText">100 / 100</b></div><div class="boss-pattern" id="bossPattern">패턴: 대기</div>
+        <div class="enemy-hud"><div class="enemy-avatar">☠</div><div class="enemy-hud-info"><span>YOUR ENEMY</span><strong id="battleMonsterName">월요일의 그림자</strong><div class="health-track"><i id="enemyHealth"></i></div></div><b id="enemyHealthText">100 / 100</b></div>
+        <div class="battle-monster-wrap"><div class="battle-monster" id="battleMonster"><img class="undertale-sprite" id="battleSprite" alt="전투 중인 몬스터" /></div><div class="monster-ground"></div></div>
+        <div class="hero-fighter"><div class="fighter-aura"></div><div class="fighter-head"></div><div class="fighter-body"></div><div class="fighter-cape"></div><div class="fighter-weapon" id="fighterWeapon">⚔</div></div>
+        <div class="damage-layer" id="damageLayer"></div><div class="combo-badge" id="comboBadge">COMBO <b id="comboCount">0</b></div>
+        <div class="battle-toast" id="battleToast">WASD로 이동하고 공격을 피하세요!</div>
+      </div>
+      <div class="battle-controls"><div class="equipped"><span class="equipped-icon" id="equippedIcon">⚔</span><div><small>EQUIPPED WEAPON</small><strong id="equippedName">강철 검</strong></div></div><div class="battle-actions"><button class="secondary-btn" id="changeWeaponBtn">무기 변경</button><button class="attack-btn" id="attackBtn"><span id="attackIcon">➶</span> <span id="attackLabel">연속 발사</span> <kbd>SPACE</kbd></button></div><div class="battle-hint">공격이 오는 반대쪽으로 A/D 또는 ←/→ 이동 · 활: SPACE 연타/누르기 · 검: SPACE · 마법봉: SPACE 꾹 누르기</div><div class="mobile-pad" aria-label="좌우 회피 조작"><button data-move="a" aria-label="왼쪽 회피">◀ 왼쪽 회피</button><button data-move="d" aria-label="오른쪽 회피">오른쪽 회피 ▶</button><button id="dodgeBtn" class="dodge-btn">긴급 회피</button></div></div>
+    </section>
+
+    <section id="resultView" class="view">
+      <div class="result-wrap"><div class="result-emblem"><span>✦</span><div class="emblem-core">✓</div></div><div class="eyebrow centered">BATTLE COMPLETE</div><h2 id="resultTitle">몬스터 퇴치 완료!</h2><p class="result-sub" id="resultSub">오늘도 한 판 잘 싸웠어요.</p>
+        <div class="result-stats"><div><small>처치한 몬스터</small><strong id="resultMonster">월요일의 그림자</strong></div><div><small>사용 무기</small><strong id="resultWeapon">강철 검</strong></div><div><small>전투 시간</small><strong id="resultTime">00:00</strong></div><div><small>최고 콤보</small><strong id="resultCombo">0 COMBO</strong></div></div>
+        <div class="after-mood"><div class="field-label">지금 기분은 조금 달라졌나요?</div><div class="mood-row" id="afterMood"><button class="mood" data-mood="답답함"><span>😣</span><small>답답함</small></button><button class="mood" data-mood="화남"><span>😤</span><small>화남</small></button><button class="mood" data-mood="불안함"><span>😟</span><small>불안함</small></button><button class="mood" data-mood="지침"><span>😮‍💨</span><small>지침</small></button><button class="mood" data-mood="괜찮아짐"><span>🙂</span><small>괜찮아짐</small></button></div></div>
+        <div class="gentle-tip"><span>✧</span><div><strong>오늘의 작은 제안</strong><p id="tipText">잠깐 자리에서 일어나 물 한 잔 마시고, 다음에 할 일 하나만 정해봐요.</p></div></div>
+        <div class="result-actions"><button class="primary-btn" id="againBtn">다른 고민 때리기 <span>↗</span></button><button class="secondary-btn" data-view="home">메인으로</button></div>
+      </div>
+    </section>
+
+    <section id="collectionView" class="view">
+      <div class="page-heading"><div class="eyebrow">YOUR ENEMY ARCHIVE</div><h2>몬스터 도감</h2><p>지금까지 만난 고민 몬스터를 모아보세요.</p></div>
+      <div class="archive-grid" id="archiveGrid"></div>
+    </section>
+    <section id="recordsView" class="view">
+      <div class="page-heading"><div class="eyebrow">BATTLE HISTORY</div><h2>전투 기록</h2><p>지난 전투를 돌아보고, 오늘의 마음을 확인해요.</p></div>
+      <div class="records-panel" id="recordsPanel"></div><button class="secondary-btn danger-btn" id="clearRecords">기록 전체 삭제</button>
+    </section>
+  </main>
+  <footer class="footer"><span>✦ 부장님때리기</span><span>오늘도 버텨낸 당신에게, 작은 승리를.</span><span>STRESS BATTLE CLUB © 2026</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js" defer></script>
+</body>
+</html>
